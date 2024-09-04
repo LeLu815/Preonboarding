@@ -1,1 +1,2 @@
 export const QUERY_USER = "QUERY_USER";
+export const QUERY_MAIN_IMAGES = "QUERY_MAIN_IMAGES";

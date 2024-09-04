@@ -60,7 +60,7 @@ function JoinPage() {
   const { mutate, isPending } = useJoinMutation();
 
   const onSubmit: SubmitHandler<Inputs> = (data) => {
-    mutate(
+    return mutate(
       {
         id: data.email,
         password: data.password,
@@ -73,7 +73,7 @@ function JoinPage() {
             description: "회원가입을 축하드립니다 :)",
             action: <ToastAction altText="확인">확인</ToastAction>,
           });
-          navigate("/");
+          navigate("/login");
         },
         onError: () => {
           toast({

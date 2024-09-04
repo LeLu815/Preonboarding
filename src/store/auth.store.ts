@@ -3,15 +3,18 @@ import { create } from "zustand";
 interface AuthStore {
   email: string | null;
   profileUrl: string | null;
+  nickname: string | null;
   actions: {
     setEmail: (email: string) => void;
     setProfileUrl: (url: string) => void;
+    setNickname: (nickname: string) => void;
   };
 }
 
 const useAuthCreateStore = create<AuthStore>((set) => ({
   email: null,
   profileUrl: null,
+  nickname: null,
   actions: {
     setEmail: (email) =>
       set({
@@ -21,6 +24,10 @@ const useAuthCreateStore = create<AuthStore>((set) => ({
       set({
         profileUrl: url,
       }),
+    setNickname: (nickname) =>
+      set({
+        nickname: nickname,
+      }),
   },
 }));
 
@@ -28,9 +35,10 @@ const useAuthCreateStore = create<AuthStore>((set) => ({
 export const useEmail = () => useAuthCreateStore((state) => state.email);
 export const useProfileUrl = () =>
   useAuthCreateStore((state) => state.profileUrl);
+export const useNickname = () => useAuthCreateStore((state) => state.nickname);
 
 // actions 분리
 export const useAuthActions = () =>
-  useAuthCreateStore((state) => state.actions)
+  useAuthCreateStore((state) => state.actions);
 
 export default useAuthCreateStore;

@@ -1,5 +1,5 @@
 import { Outlet } from "react-router";
-import { ACCESS_TOEKN, getDataToLocal } from "../utils/localstorage";
+import { ACCESS_TOEKN, getDataToLocal } from "../utils/localStorage";
 
 const PublicRouterLayout = () => {
   return <Outlet />;

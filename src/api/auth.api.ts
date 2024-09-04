@@ -12,10 +12,9 @@ export interface JoinParams {
 }
 
 export interface UserInfoResponse {
-  // 사용자 정보의 구조를 정의합니다.
   id: string;
   nickname: string;
-  // 필요한 다른 필드 추가
+  avatar: null | string;
 }
 
 export interface PatchUserParams {
@@ -25,7 +24,7 @@ export interface PatchUserParams {
 
 class AuthApi {
   #client: AxiosInstance;
-  #accessToken: string | null;
+  #accessToken: string | null = null;
   constructor(client: AxiosInstance) {
     this.#client = client;
     // 인터셉터 설정
