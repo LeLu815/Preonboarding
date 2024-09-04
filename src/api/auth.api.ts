@@ -1,21 +1,26 @@
 import { AxiosInstance, AxiosResponse } from "axios";
 
-interface LoginParams {
+export interface LoginParams {
   id: string;
   password: string;
 }
 
-interface JoinParams {
+export interface JoinParams {
   id: string;
   password: string;
   nickname: string;
 }
 
-interface UserInfoResponse {
+export interface UserInfoResponse {
   // 사용자 정보의 구조를 정의합니다.
   id: string;
   nickname: string;
   // 필요한 다른 필드 추가
+}
+
+export interface PatchUserParams {
+  avatar: File | null;
+  nickname: string;
 }
 
 class AuthApi {
@@ -62,6 +67,20 @@ class AuthApi {
     const response = await this.#client.get<UserInfoResponse>("/user", {
       headers: {
         "Content-Type": "application/json",
+      },
+    });
+    return response;
+  }
+
+  async patchUserInfo({ avatar, nickname }: PatchUserParams) {
+    const formData = new FormData();
+    if (avatar) {
+      formData.append("avatar", avatar);
+    }
+    formData.append("nickname", nickname);
+    const response = await this.#client.patch("/profile", formData, {
+      headers: {
+        "Content-Type": "multipart/form-data",
       },
     });
     return response;
