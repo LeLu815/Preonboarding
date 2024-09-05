@@ -2,6 +2,14 @@ import { ROWS_PER_PAGE } from "@/constant/placeholder";
 import { Post } from "@/hooks/usePlaceHolderQuery";
 import axios, { AxiosResponse } from "axios";
 
+export type CommentType = {
+  postId: number;
+  id: number;
+  name: string;
+  email: string;
+  body: string;
+};
+
 const BASE_URL = import.meta.env.VITE_JSON_PLACE_HOLDER as string;
 class PlaceholderAPI {
   #baseUrl = BASE_URL;
@@ -25,8 +33,8 @@ class PlaceholderAPI {
     const response = await this.#client.get(`/photos/${id}`);
     return response;
   }
-  async fetchPostComments(id: number): Promise<AxiosResponse> {
-    const response = await this.#client.get(`/comments?postId=${id}/`);
+  async fetchPostComments(id: number): Promise<AxiosResponse<CommentType[]>> {
+    const response = await this.#client.get(`/posts/${id}/comments`);
     return response;
   }
 }

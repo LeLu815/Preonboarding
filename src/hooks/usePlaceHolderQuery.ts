@@ -32,6 +32,7 @@ export const usePostsInfiniteQuery = () => {
     gcTime: 1000 * 60 * 60 * 24, // 24시간 (1일)
   });
 };
+
 export const usePostQuery = (id: number) => {
   return useQuery({
     queryKey: [
@@ -40,10 +41,12 @@ export const usePostQuery = (id: number) => {
         id: id,
       },
     ],
+    enabled: !isNaN(id),
     queryFn: () => placeholderApi.fetchPost(id),
     refetchOnWindowFocus: false,
   });
 };
+
 export const useCommentsQuery = (id: number) => {
   return useQuery({
     queryKey: [

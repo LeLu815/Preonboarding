@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import Nav from "@/components/Nav";
 import { useAuthActions } from "@/store/auth.store";
 import { AxiosResponse } from "axios";
+import { useEffect } from "react";
 import { Outlet, redirect, useLoaderData } from "react-router";
 import api from "../api/api";
 import {
@@ -16,14 +17,16 @@ const PrivateRouterLayout = () => {
   const { setProfileUrl, setEmail, setNickname } = useAuthActions();
   const userData = useLoaderData() as AxiosResponse<UserInfoResponse>;
 
-  // userData가 정의되어 있는지 확인
-  if (userData && userData.data) {
-    setEmail(userData.data.id);
-    setNickname(userData.data.nickname);
-    if (userData.data.avatar) {
-      setProfileUrl(userData.data.avatar);
+  useEffect(() => {
+    // userData가 정의되어 있는지 확인
+    if (userData && userData.data) {
+      setEmail(userData.data.id);
+      setNickname(userData.data.nickname);
+      if (userData.data.avatar) {
+        setProfileUrl(userData.data.avatar);
+      }
     }
-  }
+  }, []);
   return (
     <>
       <Nav />
