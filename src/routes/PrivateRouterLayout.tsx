@@ -1,4 +1,5 @@
 import { UserInfoResponse } from "@/api/auth.api";
+import Footer from "@/components/Footer";
 import Nav from "@/components/Nav";
 import { useAuthActions } from "@/store/auth.store";
 import { AxiosResponse } from "axios";
@@ -27,6 +28,7 @@ const PrivateRouterLayout = () => {
     <>
       <Nav />
       <Outlet />
+      <Footer />
     </>
   );
 };
