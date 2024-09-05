@@ -1,3 +1,4 @@
+import MyPage from "@/pages/MyPage";
 import { createBrowserRouter } from "react-router-dom";
 import HomePage from "../pages/HomePage";
 import JoinPage from "../pages/JoinPage";
@@ -22,7 +23,10 @@ const router = createBrowserRouter([
       {
         element: <PrivateRouterLayout />,
         loader: privateLoader,
-        children: [{ path: "/", element: <HomePage /> }],
+        children: [
+          { path: "/", element: <HomePage /> },
+          { path: "/my", element: <MyPage /> },
+        ],
       },
       {
         path: "/*",

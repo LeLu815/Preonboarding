@@ -36,7 +36,7 @@ export function CarouselHome() {
             {data &&
               data.map((url, index) => (
                 <CarouselItem key={index}>
-                  <div className="p-1 h-full">
+                  <div className="h-full">
                     <Card className="h-full">
                       <img src={url} alt="랜덤 이미지" />
                     </Card>
