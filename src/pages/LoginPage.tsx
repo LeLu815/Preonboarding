@@ -81,8 +81,10 @@ function LoginPage() {
   return (
     <Card className="w-[350px] mx-auto">
       <CardHeader>
-        <CardTitle>로그인</CardTitle>
-        <CardDescription>프리온보딩 로그인 페이지 입니다.</CardDescription>
+        <CardTitle className="text-center">로그인</CardTitle>
+        <CardDescription className="text-center">
+          프리온보딩 로그인 페이지 입니다.
+        </CardDescription>
       </CardHeader>
       <CardContent>
         <form onSubmit={handleSubmit(onSubmit)}>

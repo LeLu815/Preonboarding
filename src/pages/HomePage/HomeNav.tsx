@@ -1,16 +1,11 @@
 import { Input } from "@/components/ui/input";
-import { useState } from "react";
 
-const navs: string[] = [
-  "홈",
-  "베스트",
-  "베이비민동이",
-  "카테고리",
-  "기획전",
-  "공지사항",
-];
-function HomeNav() {
-  const [selectedNav, setSelectedNav] = useState<string>(navs[0]);
+type HomeNavProps = {
+  navs: string[];
+  selected: string;
+  handleClick: (navName: string) => void;
+};
+function HomeNav({ selected, handleClick, navs }: HomeNavProps) {
   return (
     <div className="w-full flex flex-col items-center border-b-[1px] border-solid border-neutral-200 mb-[30px]">
       <div className="font-[700] font-mono text-[24px] py-[20px]">
@@ -21,16 +16,16 @@ function HomeNav() {
           {navs.map((nav) => (
             <li
               onClick={() => {
-                setSelectedNav(nav);
+                handleClick(nav);
               }}
               key={nav}
-              className={`${selectedNav === nav ? "font-[700]" : ""}`}
+              className={`${selected === nav ? "font-[700]" : ""}`}
             >
               <div className="flex flex-col gap-3 cursor-pointer">
                 <p>{nav}</p>
                 <span
                   className={`${
-                    selectedNav === nav
+                    selected === nav
                       ? "border-b-2 border-solid border-neutral-800"
                       : ""
                   }`}

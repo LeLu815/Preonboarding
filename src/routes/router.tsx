@@ -1,4 +1,5 @@
 import MyPage from "@/pages/MyPage";
+import SearchPage from "@/pages/SearchPage";
 import { createBrowserRouter } from "react-router-dom";
 import HomePage from "../pages/HomePage";
 import JoinPage from "../pages/JoinPage";
@@ -26,6 +27,7 @@ const router = createBrowserRouter([
         children: [
           { path: "/", element: <HomePage /> },
           { path: "/my", element: <MyPage /> },
+          { path: "/search", element: <SearchPage /> },
         ],
       },
       {

@@ -1,0 +1,3 @@
+export const PLACE_HOLDER = "PLACE_HOLDER";
+export const PLACE_HOLDER_COMMETS = "PLACE_HOLDER_COMMETS";
+export const ROWS_PER_PAGE = 20;
