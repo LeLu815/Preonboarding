@@ -18,7 +18,7 @@ export interface UserInfoResponse {
 }
 
 export interface PatchUserParams {
-  avatar: File | null;
+  avatar: File | undefined;
   nickname: string;
 }
 
@@ -71,12 +71,16 @@ class AuthApi {
     return response;
   }
 
-  async patchUserInfo({ avatar, nickname }: PatchUserParams) {
+  async patchUserInfo({
+    avatar,
+    nickname,
+  }: PatchUserParams): Promise<AxiosResponse<UserInfoResponse>> {
     const formData = new FormData();
     if (avatar) {
       formData.append("avatar", avatar);
     }
     formData.append("nickname", nickname);
+
     const response = await this.#client.patch("/profile", formData, {
       headers: {
         "Content-Type": "multipart/form-data",

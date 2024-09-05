@@ -2,7 +2,12 @@ import { Outlet } from "react-router";
 import { ACCESS_TOEKN, getDataToLocal } from "../utils/localStorage";
 
 const PublicRouterLayout = () => {
-  return <Outlet />;
+  return (
+    <>
+      <div className="py-[15px]" />
+      <Outlet />
+    </>
+  );
 };
 
 export default PublicRouterLayout;

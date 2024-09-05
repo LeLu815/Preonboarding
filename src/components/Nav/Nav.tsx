@@ -13,16 +13,27 @@ function Nav({ children }: PropsWithChildren) {
           <Link to="/" className="font-[700] font-mono text-[22px]">
             쇼핑하기
           </Link>
-          <Link to="/my" className="flex justify-between items-center gap-3">
-            <div className="w-[28px] h-[28px] rounded-full overflow-hidden border border-solid border-neutral-300">
-              {profileUrl ? (
-                <img src={profileUrl} alt="유저 프로필 이미지" />
-              ) : (
-                <img src={defaultProfile} alt="기본 이미지" />
-              )}
-            </div>
-            <p>{nickname}</p>
-          </Link>
+          <div className="flex gap-10">
+            <Link to="/my" className="flex justify-between items-center gap-3">
+              <div className="rounded-full overflow-hidden border border-solid border-neutral-300">
+                {profileUrl ? (
+                  <img
+                    className="object-cover w-[28px] h-[28px]"
+                    src={profileUrl}
+                    alt="유저 프로필 이미지"
+                  />
+                ) : (
+                  <img
+                    className="object-cover w-[28px] h-[28px]"
+                    src={defaultProfile}
+                    alt="기본 이미지"
+                  />
+                )}
+              </div>
+              <p>{nickname}</p>
+            </Link>
+            <button className="font-[500] text-neutral-400">로그아웃</button>
+          </div>
           {children}
         </div>
       </nav>
