@@ -13,8 +13,10 @@ https://preonboarding-pg595mb7s-lee-ins-projects.vercel.app/
 
 - [ ] 이미지 로딩
 - [ ] 이미지 최적화
+- [ ] Lazy Loading
+- [ ] 디테일 페이지 접속시 스크롤 최상단으로
 
 ## 버그
 
-- [x] zustand 이미지
+- [x] zustand 상태 업데이트는 useEffect에서
 - [x] 깃허브 파일명, 폴더명 대소문자 인식 장애 문제

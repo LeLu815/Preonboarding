@@ -1,3 +1,4 @@
+import api from "@/api";
 import { useNickname, useProfileUrl } from "@/store/auth.store";
 import { PropsWithChildren } from "react";
 import { Link } from "react-router-dom";
@@ -32,7 +33,14 @@ function Nav({ children }: PropsWithChildren) {
               </div>
               <p>{nickname}</p>
             </Link>
-            <button className="font-[500] text-neutral-400">로그아웃</button>
+            <button
+              onClick={() => {
+                api.auth.logout();
+              }}
+              className="font-[500] text-neutral-400"
+            >
+              로그아웃
+            </button>
           </div>
           {children}
         </div>
