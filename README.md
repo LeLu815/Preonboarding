@@ -1,3 +1,7 @@
+## 사이트 링크
+
+https://preonboarding-pg595mb7s-lee-ins-projects.vercel.app/
+
 ## 한 것
 
 - [x] JWT 인증서버를 활용하여 access token 기반 페이지 권한 처리(라우팅 제어)
@@ -13,3 +17,4 @@
 ## 버그
 
 - [x] zustand 이미지
+- [x] 깃허브 파일명, 폴더명 대소문자 인식 장애 문제
