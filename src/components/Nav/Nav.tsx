@@ -35,7 +35,7 @@ function Nav({ children }: PropsWithChildren) {
             </Link>
             <button
               onClick={() => {
-                api.auth.logout();
+                return api.auth.logout();
               }}
               className="font-[500] text-neutral-400"
             >
