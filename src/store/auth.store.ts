@@ -5,9 +5,9 @@ interface AuthStore {
   profileUrl: string | null;
   nickname: string | null;
   actions: {
-    setEmail: (email: string) => void;
-    setProfileUrl: (url: string) => void;
-    setNickname: (nickname: string) => void;
+    setEmail: (email: string | null) => void;
+    setProfileUrl: (url: string | null) => void;
+    setNickname: (nickname: string | null) => void;
   };
 }
 
